@@ -1,0 +1,106 @@
+﻿@model Parcial1.Data.Models.Alumno
+@{
+    ViewData["Title"] = "Alumno";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<SelectListItem> carreras = ViewBag.Carreras as List<SelectListItem> ?? new List<SelectListItem>();
+}
+
+@if (Model != null)
+{
+    <h1>Editar alumno</h1>
+}
+else
+{
+    <h1>Crear alumno</h1>
+}
+
+<form method="post" asp-controller="Alumno">
+    <div class="row">
+        <div class="col-3">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="carne">Carne</label>
+                <input type="text" id="carne" class="form-control" asp-for="CarneAlumno" readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="primerNombre">Primer nombre</label>
+                <input type="text" class="form-control" id="primerNombre" asp-for="Nombre1Alumno">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="input-group mb-6">
+                <label class="input-group-text" for="segundoNombre">Segundo nombre</label>
+                <input type="text" class="form-control" id="segundoNombre" asp-for="Nombre2Alumno">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="primerApellido">Primer apellido</label>
+                <input type="text" class="form-control" id="primerApellido" asp-for="Apellido1Alumno">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="segundoApelldio">Segundo apellido</label>
+                <input type="text" class="form-control" id="segundoApellido" asp-for="Apellido2Alumno">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="fechaNacimiento">Fecha nacimiento</label>
+                <input type="date" class="form-control" id="fechaNacimiento" asp-for="FechaNacimiento">
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="telefono">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" asp-for="TelefonoAlumno">
+            </div>
+        </div>
+
+        <div class="col-5">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="direccion">Dirección</label>
+                <input type="text" class="form-control" id="direccion" asp-for="DireccionAlumno">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="correo">Correo</label>
+                <input type="email" class="form-control" id="correo" asp-for="CorreoAlumno">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="carreras">Carrera</label>
+                <select class="form-select" id="carreras" asp-for="CodigoCarrera" asp-items="carreras">
+                    <option selected disabled>-- Seleccionar --</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            @if (Model == null)
+            {
+                <button class="btn btn-success" asp-action="CrearAlumno" type="submit">Guardar</button>
+            }
+            else
+            {
+                <button class="btn btn-info" asp-action="EditarAlumno" type="submit">Editar</button>
+            }
+        </div>
+    </div>
+</form>
+

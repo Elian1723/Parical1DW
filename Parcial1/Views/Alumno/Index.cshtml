@@ -7,6 +7,10 @@
 
 <h1>Alumnos</h1>
 
+<a title="Nuevo alumno" class="btn btn-success" asp-controller="Alumno" asp-action="BuscarAlumno">
+    Nuevo <i class="bi bi-person-add"></i>
+</a>
+
 <div class="table-responsive">
     <table class="table table-striped table-hover">
         <thead>
@@ -38,13 +42,15 @@
                     <td>@alumno.CorreoAlumno</td>
                     <td>@alumno.NombreCarrera</td>
                     <td>
-                        <button class="btn btn-info">
-                            <a asp-controller="Alumno" asp-action="Editar" asp-route-carne="@alumno.CarneAlumno">Editar</a>
-                        </button>
+                        <div class="d-flex justify-content-between">
+                            <a title="Editar" class="btn btn-info btn-sm me-2" asp-controller="Alumno" asp-action="BuscarAlumno" asp-route-carne="@alumno.CarneAlumno">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
 
-                        <button class="btn btn-danger">
-                            <a asp-controller="Alumno" asp-action="Eliminar" asp-route-carne="@alumno.CarneAlumno">Eliminar</a>
-                        </button>
+                            <a title="Eliminar" class="btn btn-danger btn-sm" asp-controller="Alumno" asp-action="Eliminar" asp-route-carne="@alumno.CarneAlumno">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
                     </td>
                 </tr>
             }

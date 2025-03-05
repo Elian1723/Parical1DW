@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Parcial1.Data.Models;
+﻿namespace Parcial1.Data.Models;
 
 public partial class Alumno
 {
