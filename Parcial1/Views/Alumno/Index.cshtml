@@ -1,0 +1,53 @@
+﻿@model List<AlumnoViewModel>
+
+@{
+    ViewData["Title"] = "Alumnos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Alumnos</h1>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Carne</th>
+                <th>Primer nombre</th>
+                <th>Segundo nombre</th>
+                <th>Primer apellido</th>
+                <th>Segundo apellido</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Carrera</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var alumno in Model)
+            {
+                <tr>
+                    <td>@alumno.CarneAlumno</td>
+                    <td>@alumno.Nombre1Alumno</td>
+                    <td>@alumno.Nombre2Alumno</td>
+                    <td>@alumno.Apellido1Alumno</td>
+                    <td>@alumno.Apellido2Alumno</td>
+                    <td>@alumno.DireccionAlumno</td>
+                    <td>@alumno.TelefonoAlumno</td>
+                    <td>@alumno.CorreoAlumno</td>
+                    <td>@alumno.NombreCarrera</td>
+                    <td>
+                        <button class="btn btn-info">
+                            <a asp-controller="Alumno" asp-action="Editar" asp-route-carne="@alumno.CarneAlumno">Editar</a>
+                        </button>
+
+                        <button class="btn btn-danger">
+                            <a asp-controller="Alumno" asp-action="Eliminar" asp-route-carne="@alumno.CarneAlumno">Eliminar</a>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
